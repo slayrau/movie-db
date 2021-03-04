@@ -1,0 +1,40 @@
+@import 'src/styles/utils/extends';
+@import 'src/styles/utils/mixins';
+
+.app-header {
+  display: flex;
+  background-color: var(--background-primary);
+}
+
+.app-header__container {
+  @extend .container;
+
+  flex: 1;
+}
+
+.app-header__list {
+  @include reset-list;
+
+  display: flex;
+}
+
+.app-header__item {
+  &:last-child {
+    margin-left: auto;
+  }
+}
+
+.app-header__link {
+  display: flex;
+  align-items: center;
+  
+  height: var(--button-size);
+  padding: 0 10px;
+
+  color: var(--label-color-primary);
+  text-decoration: none;
+
+  &.active {
+    color: var(--system-red);
+  }
+}

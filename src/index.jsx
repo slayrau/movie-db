@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import App from './app';
+import 'styles/index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Movie db</h1>
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root'),
 );
