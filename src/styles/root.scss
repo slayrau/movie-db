@@ -1,15 +1,23 @@
 :root {
   --container-max-width: 1200px;
   --button-size: 44px;
+  --aspect-ratio-poster: calc(100% * 3/2);
 
-  --background-primary: rgba(30, 30, 30, 1);
-  --background-secondary: rgba(40, 40, 40, 1);
-  --background-tertiary: rgba(40, 40, 40, 0.6);
+  --background-primary: rgba(0, 0, 0, 1);
+  --background-secondary: rgba(30, 30, 30, 1);
+  --background-tertiary: rgba(40, 40, 40, 1);
+  --background-quartinerary: rgba(40, 40, 40, 0.6);
 
   --label-color-primary: rgba(223, 222, 223, 1);
   --label-color-secondary: rgba(235, 235, 245, 0.6);
   --label-color-tertiary: rgba(235, 235, 245, 0.3);
   --label-color-quartinerary: rgba(235, 235, 245, 0.18);
 
-  --system-red: #FF453A;
+  --system-red: #e50914;
+  --system-red-rgb: 229, 9, 20;
+
+  --breakpoints-small: 420px;
+  --breakpoints-medium: 768;
+  --breakpoints-large: 992;
+  --breakpoints-extra-large: 1200;
 }

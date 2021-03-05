@@ -1,5 +1,17 @@
 .container {
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 0 20px;
   max-width: var(--container-max-width);
+}
+
+.reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

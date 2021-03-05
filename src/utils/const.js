@@ -1,23 +1,28 @@
-// eslint-disable-next-line import/prefer-default-export
-export const navigation = [
-  {
-    id: 'main',
+export const navigation = {
+  main: {
     url: '/',
-    name: 'Главная',
+    title: 'Главная',
   },
-  {
-    id: 'tv-series',
+  tvSeries: {
     url: '/tv-series',
-    name: 'Сериалы',
+    title: 'Сериалы',
   },
-  {
-    id: 'movies',
+  movies: {
     url: '/movies',
-    name: 'Фильмы',
+    title: 'Фильмы',
   },
-  {
-    id: 'search',
+  search: {
     url: '/search',
-    name: 'Поиск',
+    title: 'Поиск',
   },
-];
+};
+
+export const ICON_NAMES = {
+  logo: 'logo',
+  search: 'search',
+};
+
+export const MediaTypeNames = {
+  tv: 'Сериал',
+  movie: 'Фильм',
+};

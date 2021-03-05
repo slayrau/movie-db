@@ -1,9 +1,10 @@
 @import 'src/styles/utils/extends';
 @import 'src/styles/utils/mixins';
 
-.home-page {
+.page {
+  padding-top: 64px;
 }
 
-.home-page__container {
+.page__container {
   @extend .container;
 }

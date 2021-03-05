@@ -2,6 +2,12 @@
 @import 'src/styles/utils/mixins';
 
 .app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
   display: flex;
   background-color: var(--background-primary);
 }
@@ -13,13 +19,32 @@
 }
 
 .app-header__list {
-  @include reset-list;
+  @extend .reset-list;
 
   display: flex;
 }
 
 .app-header__item {
+  margin-right: 10px;
+
+  &:first-child {
+    margin-left: -10px;
+
+    .app-header__link {
+      &:not(.active) {
+        &:hover .icon {
+          filter: grayscale(1) brightness(2.2);
+        }
+
+        .icon {
+          filter: grayscale(1) brightness(1.5);
+        }
+      }
+    }
+  }
+
   &:last-child {
+    margin-right: -10px;
     margin-left: auto;
   }
 }
@@ -27,14 +52,31 @@
 .app-header__link {
   display: flex;
   align-items: center;
+  justify-content: center;
   
+  min-width: var(--button-size);
   height: var(--button-size);
   padding: 0 10px;
 
-  color: var(--label-color-primary);
+  color: var(--label-color-secondary);
   text-decoration: none;
+
+  border-radius: 8px;
+  outline: none;
+  
+  &:hover {
+    color: var(--label-color-primary);
+  }
+  
+  &[data-focus-visible-added] {
+    box-shadow: inset 0 0 0 4px rgba(var(--system-red-rgb), 0.8);
+  }
 
   &.active {
     color: var(--system-red);
   }
+}
+
+.app-header__icon-logo {
+  width: 66px;
 }
