@@ -17,12 +17,22 @@ export const navigation = {
   },
 };
 
-export const ICON_NAMES = {
+export const IconNames = {
   logo: 'logo',
   search: 'search',
+  chevronLeft: 'chevronLeft',
+  chevronRight: 'chevronRight',
 };
 
 export const MediaTypeNames = {
   tv: 'Сериал',
   movie: 'Фильм',
+};
+
+export const Breakpoints = {
+  extraSmall: 0,
+  small: 480,
+  medium: 768,
+  large: 1024,
+  extraLarge: 1200,
 };

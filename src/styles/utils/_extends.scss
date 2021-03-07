@@ -1,6 +1,6 @@
 .container {
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--button-size);
   max-width: var(--container-max-width);
 }
 
@@ -8,6 +8,12 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.reset-button {
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 .text-ellipsis {

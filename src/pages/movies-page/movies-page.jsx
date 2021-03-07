@@ -24,11 +24,9 @@ const MoviesPage = () => {
           <Card
             key={movie.id}
             id={movie.id}
-            media_type={movie.media_type}
+            mediaType={movie.media_type}
             title={movie.title}
-            poster_path={movie.poster_path}
-            release_date={movie.release_date}
-            adult={movie.adult}
+            posterPath={movie.poster_path}
           />
         ))}
       </CardGrid>

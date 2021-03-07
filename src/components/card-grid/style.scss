@@ -4,6 +4,9 @@
 @import 'src/styles/utils/variables';
 
 .card-grid {
+}
+
+.card-grid__list {
   @extend .reset-list;
 
   display: grid;

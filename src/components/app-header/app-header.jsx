@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import { navigation, ICON_NAMES } from 'utils/const';
+import { navigation, IconNames } from 'utils/const';
 import Icon from 'components/icon';
 import './style.scss';
 
@@ -17,7 +17,7 @@ const AppHeader = () => {
                 exact
                 aria-label={navigation.main.title}
               >
-                <Icon icon={ICON_NAMES.logo} className="app-header__icon-logo" />
+                <Icon icon={IconNames.logo} className="app-header__icon-logo" />
               </NavLink>
             </li>
 
@@ -49,7 +49,7 @@ const AppHeader = () => {
                 aria-label={navigation.search.title}
                 title={navigation.search.title}
               >
-                <Icon icon={ICON_NAMES.search} />
+                <Icon icon={IconNames.search} />
               </NavLink>
             </li>
           </ul>

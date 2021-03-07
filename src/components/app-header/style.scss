@@ -16,6 +16,7 @@
   @extend .container;
 
   flex: 1;
+  padding: 0 var(--button-size);
 }
 
 .app-header__list {
@@ -29,18 +30,6 @@
 
   &:first-child {
     margin-left: -10px;
-
-    .app-header__link {
-      &:not(.active) {
-        &:hover .icon {
-          filter: grayscale(1) brightness(2.2);
-        }
-
-        .icon {
-          filter: grayscale(1) brightness(1.5);
-        }
-      }
-    }
   }
 
   &:last-child {
@@ -69,7 +58,8 @@
   }
   
   &[data-focus-visible-added] {
-    box-shadow: inset 0 0 0 4px rgba(var(--system-red-rgb), 0.8);
+    color: var(--label-color-primary);
+    box-shadow: inset 0 0 0 4px var(--system-red);
   }
 
   &.active {

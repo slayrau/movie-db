@@ -1,12 +1,19 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
 
 const CardGrid = ({ children }) => {
   return (
-    <ul className="card-grid">
-      {children}
-    </ul>
+    <div className="card-grid">
+      <ul className="card-grid__list">
+        {React.Children.map(children, (child) => (
+          <li className="card-grid__item">
+            {child}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

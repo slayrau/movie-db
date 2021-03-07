@@ -24,10 +24,9 @@ const TvSeriesPage = () => {
           <Card
             key={series.id}
             id={series.id}
-            media_type={series.media_type}
+            mediaType={series.media_type}
             title={series.name}
-            poster_path={series.poster_path}
-            release_date={series.first_air_date}
+            posterPath={series.poster_path}
           />
         ))}
       </CardGrid>

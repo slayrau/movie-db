@@ -1,0 +1,19 @@
+@import 'src/styles/utils/extends';
+@import 'src/styles/utils/mixins';
+
+.collection {
+  margin-top: 40px;
+}
+
+.collection__header {
+  margin-bottom: 4px;
+}
+
+.collection__title {
+  margin: 0;
+  font-size: var(--font-size-title-2);
+  line-height: var(--line-height-title-2);
+}
+
+.collection__body {
+}

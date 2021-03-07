@@ -1,14 +1,18 @@
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import { ICON_NAMES } from 'utils/const';
+import { IconNames } from 'utils/const';
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
+import { ReactComponent as ChevronLeft } from 'assets/icons/chevron-left.svg';
+import { ReactComponent as ChevronRight } from 'assets/icons/chevron-right.svg';
 import { ReactComponent as LogoIcon } from 'assets/images/logo.svg';
 import './style.scss';
 
 const ICON_TYPES = {
-  [ICON_NAMES.search]: SearchIcon,
-  [ICON_NAMES.logo]: LogoIcon,
+  [IconNames.search]: SearchIcon,
+  [IconNames.logo]: LogoIcon,
+  [IconNames.chevronLeft]: ChevronLeft,
+  [IconNames.chevronRight]: ChevronRight,
 };
 
 const Icon = ({ icon, className }) => {
@@ -23,8 +27,10 @@ const Icon = ({ icon, className }) => {
 
 Icon.propTypes = {
   icon: PropTypes.oneOf([
-    ICON_NAMES.search,
-    ICON_NAMES.logo,
+    IconNames.search,
+    IconNames.logo,
+    IconNames.chevronLeft,
+    IconNames.chevronRight,
   ]).isRequired,
   className: PropTypes.string,
 };

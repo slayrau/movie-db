@@ -1,0 +1,36 @@
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.card-skeleton {
+}
+
+.card-skeleton__poster {
+  width: 100%;
+  padding-top: var(--aspect-ratio-poster);
+  border-radius: 4px;
+}
+
+.card-skeleton__text {
+  width: 70%;
+  height: 16px;
+  margin: 0 auto;
+  margin-top: 5px;
+  border-radius: 4px;
+}
+
+.card-skeleton__animate {
+  animation : shimmer 2s infinite;
+  background: linear-gradient(
+    to right,
+    var(--background-tertiary) 4%,
+    var(--background-quartinerary) 25%,
+    var(--background-tertiary) 36%
+  );
+  background-size: 1000px 100%;
+}
