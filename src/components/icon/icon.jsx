@@ -5,6 +5,7 @@ import { IconNames } from 'utils/const';
 import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 import { ReactComponent as ChevronLeft } from 'assets/icons/chevron-left.svg';
 import { ReactComponent as ChevronRight } from 'assets/icons/chevron-right.svg';
+import { ReactComponent as Picture48 } from 'assets/icons/48/picture.svg';
 import { ReactComponent as LogoIcon } from 'assets/images/logo.svg';
 import './style.scss';
 
@@ -13,6 +14,7 @@ const ICON_TYPES = {
   [IconNames.logo]: LogoIcon,
   [IconNames.chevronLeft]: ChevronLeft,
   [IconNames.chevronRight]: ChevronRight,
+  [IconNames.picture48]: Picture48,
 };
 
 const Icon = ({ icon, className }) => {
@@ -31,6 +33,7 @@ Icon.propTypes = {
     IconNames.logo,
     IconNames.chevronLeft,
     IconNames.chevronRight,
+    IconNames.picture48,
   ]).isRequired,
   className: PropTypes.string,
 };

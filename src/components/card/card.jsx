@@ -9,7 +9,7 @@ const Card = ({ id, mediaType, title, posterPath }) => {
   return (
     <Link
       className="card"
-      to={`/watch/${id}`}
+      to={`/watch/${mediaType}/${id}`}
       aria-label={`${MediaTypeNames[mediaType]} - ${title}`}
     >
       <div className="card__container">

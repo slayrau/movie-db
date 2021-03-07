@@ -5,9 +5,7 @@ import './style.scss';
 
 const Page = ({ className, children }) => (
   <main className={cn('page', className)}>
-    <div className="page__container">
-      {children}
-    </div>
+    {children}
   </main>
 );
 

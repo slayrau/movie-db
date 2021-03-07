@@ -6,13 +6,15 @@ import './style.scss';
 const CardGrid = ({ children }) => {
   return (
     <div className="card-grid">
-      <ul className="card-grid__list">
-        {React.Children.map(children, (child) => (
-          <li className="card-grid__item">
-            {child}
-          </li>
-        ))}
-      </ul>
+      <div className="container">
+        <ul className="card-grid__list">
+          {React.Children.map(children, (child) => (
+            <li className="card-grid__item">
+              {child}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

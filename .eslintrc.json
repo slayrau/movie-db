@@ -48,6 +48,7 @@
     "consistent-return": "off",
     "react/jsx-one-expression-per-line": "off",
     "camelcase": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   }
 }

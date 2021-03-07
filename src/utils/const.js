@@ -22,6 +22,7 @@ export const IconNames = {
   search: 'search',
   chevronLeft: 'chevronLeft',
   chevronRight: 'chevronRight',
+  picture48: 'picture48',
 };
 
 export const MediaTypeNames = {
@@ -35,4 +36,9 @@ export const Breakpoints = {
   medium: 768,
   large: 1024,
   extraLarge: 1200,
+};
+
+export const ISO_3166_1 = {
+  RU: 'RU',
+  US: 'US',
 };

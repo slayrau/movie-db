@@ -5,6 +5,7 @@ import HomePage from 'pages/home-page';
 import TvSeriesPage from 'pages/tv-series-page';
 import MoviesPage from 'pages/movies-page';
 import SearchPage from 'pages/search-page';
+import WatchPage from 'pages/watch-page';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route exact path="/tv-series" component={TvSeriesPage} />
         <Route exact path="/movies" component={MoviesPage} />
         <Route exact path="/search" component={SearchPage} />
+        <Route path="/watch/:mediaType/:id" component={WatchPage} />
       </Switch>
     </>
   );

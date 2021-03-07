@@ -2,9 +2,9 @@
 @import 'src/styles/utils/mixins';
 
 .page {
-  padding-top: 64px;
+  padding-top: var(--button-size);
 }
 
 .page__container {
-  @extend .container;
+  // @extend .container;
 }
