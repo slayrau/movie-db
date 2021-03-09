@@ -1,12 +1,12 @@
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import { IconNames } from 'utils/const';
-import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
-import { ReactComponent as ChevronLeft } from 'assets/icons/chevron-left.svg';
-import { ReactComponent as ChevronRight } from 'assets/icons/chevron-right.svg';
-import { ReactComponent as Picture48 } from 'assets/icons/48/picture.svg';
-import { ReactComponent as LogoIcon } from 'assets/images/logo.svg';
+import { IconNames } from 'src/utils/const';
+import { ReactComponent as SearchIcon } from 'src/assets/icons/search.svg';
+import { ReactComponent as ChevronLeft } from 'src/assets/icons/chevron-left.svg';
+import { ReactComponent as ChevronRight } from 'src/assets/icons/chevron-right.svg';
+import { ReactComponent as Picture48 } from 'src/assets/icons/48/picture.svg';
+import { ReactComponent as LogoIcon } from 'src/assets/images/logo.svg';
 import './style.scss';
 
 const ICON_TYPES = {

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import CardGrid from 'components/card-grid';
+import CardGrid from 'src/components/card-grid';
 import './style.scss';
 
 const Similar = ({ title, children }) => {

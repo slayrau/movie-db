@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { MediaTypeNames } from 'utils/const';
-import { getPosterUrl } from 'utils/helpers';
+import { MediaTypeNames } from 'src/utils/const';
+import { getPosterUrl } from 'src/utils/helpers';
 import './style.scss';
 
 const Card = ({ id, mediaType, title, posterPath }) => {

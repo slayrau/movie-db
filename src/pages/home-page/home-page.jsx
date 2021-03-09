@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
-import { getTrendingMovies } from 'api';
-import Page from 'components/page';
-import Collection from 'components/collection';
-import CardSkeleton from 'components/card-skeleton';
-import Card from 'components/card';
+import { getTrendingMovies } from 'src/api';
+import Page from 'src/components/page';
+import Collection from 'src/components/collection';
+import CardSkeleton from 'src/components/card-skeleton';
+import Card from 'src/components/card';
 import './style.scss';
 
 const HomePage = () => {

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-import { getTrendingMovies } from 'api';
-import Page from 'components/page';
-import CardGrid from 'components/card-grid';
-import Card from 'components/card';
+import { getTrendingMovies } from 'src/api';
+import Page from 'src/components/page';
+import CardGrid from 'src/components/card-grid';
+import Card from 'src/components/card';
 import './style.scss';
 
 const MoviesPage = () => {

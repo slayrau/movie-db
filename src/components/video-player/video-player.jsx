@@ -2,7 +2,7 @@
 import ReactPlayer from 'react-player';
 import PropTypes from 'prop-types';
 
-import { VideoSitesToUrl } from 'utils/const';
+import { VideoSitesToUrl } from 'src/utils/const';
 import './style.scss';
 
 const VideoPlayer = ({ videoKey, name, site }) => {

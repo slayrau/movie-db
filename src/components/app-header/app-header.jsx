@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
-import { navigation, IconNames } from 'utils/const';
-import Icon from 'components/icon';
+import { navigation, IconNames } from 'src/utils/const';
+import Icon from 'src/components/icon';
 import './style.scss';
 
 const AppHeader = () => {

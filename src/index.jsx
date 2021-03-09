@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import 'focus-visible';
 
 import App from './app';
-import 'styles/index.scss';
+import 'src/styles/index.scss';
 
 ReactDOM.render(
   <React.StrictMode>

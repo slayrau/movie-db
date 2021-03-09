@@ -4,8 +4,8 @@ import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 
-import { IconNames, Breakpoints } from 'utils/const';
-import Icon from 'components/icon';
+import { IconNames, Breakpoints } from 'src/utils/const';
+import Icon from 'src/components/icon';
 import './style.scss';
 
 SwiperCore.use([Navigation]);

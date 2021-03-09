@@ -1,4 +1,4 @@
-import { Breakpoints } from 'utils/const';
+import { Breakpoints } from 'src/utils/const';
 
 export const actorsBreakpoints = {
   [Breakpoints.extraSmall]: {

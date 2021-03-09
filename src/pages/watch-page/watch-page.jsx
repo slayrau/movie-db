@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { format, getMinutes, parseISO } from 'date-fns';
 
-import { getMediaDetails } from 'api';
-import { MediaTypeNames } from 'utils/const';
-import { actorsBreakpoints, videosBreakpoints } from 'utils/settings';
-import { getBackdropUrl, getUTCRuntime } from 'utils/helpers';
+import { getMediaDetails } from 'src/api';
+import { MediaTypeNames } from 'src/utils/const';
+import { actorsBreakpoints, videosBreakpoints } from 'src/utils/settings';
+import { getBackdropUrl, getUTCRuntime } from 'src/utils/helpers';
 
-import Page from 'components/page';
-import Collection from 'components/collection';
-import Card from 'components/card';
-import VideoPlayer from 'components/video-player';
+import Page from 'src/components/page';
+import Collection from 'src/components/collection';
+import Card from 'src/components/card';
+import VideoPlayer from 'src/components/video-player';
 
 // OWN COMPONENTS
 import MediaInfo from './components/media-info';

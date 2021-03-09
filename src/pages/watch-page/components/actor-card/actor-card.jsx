@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { getProfileImg } from 'utils/helpers';
+import { getProfileImg } from 'src/utils/helpers';
 import './style.scss';
 
 const ActorCard = ({ id, name, character, photo }) => {

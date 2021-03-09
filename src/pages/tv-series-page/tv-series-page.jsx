@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { getTrendingTvSeries } from 'api';
-import Page from 'components/page';
-import CardGrid from 'components/card-grid';
-import Card from 'components/card';
+import { getTrendingTvSeries } from 'src/api';
+import Page from 'src/components/page';
+import CardGrid from 'src/components/card-grid';
+import Card from 'src/components/card';
 import './style.scss';
 
 const TvSeriesPage = () => {

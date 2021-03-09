@@ -1,11 +1,11 @@
 import { Switch, Route } from 'react-router-dom';
 
-import AppHeader from 'components/app-header';
-import HomePage from 'pages/home-page';
-import TvSeriesPage from 'pages/tv-series-page';
-import MoviesPage from 'pages/movies-page';
-import SearchPage from 'pages/search-page';
-import WatchPage from 'pages/watch-page';
+import AppHeader from 'src/components/app-header';
+import HomePage from 'src/pages/home-page';
+import TvSeriesPage from 'src/pages/tv-series-page';
+import MoviesPage from 'src/pages/movies-page';
+import SearchPage from 'src/pages/search-page';
+import WatchPage from 'src/pages/watch-page';
 
 const App = () => {
   return (
