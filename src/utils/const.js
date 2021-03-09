@@ -42,3 +42,7 @@ export const ISO_3166_1 = {
   RU: 'RU',
   US: 'US',
 };
+
+export const VideoSitesToUrl = {
+  YouTube: 'https://youtube.com/watch?v=',
+};

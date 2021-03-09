@@ -2,20 +2,17 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { getProfileImg } from 'utils/helpers';
-import { IconNames } from 'utils/const';
-import Icon from 'components/icon';
 import './style.scss';
 
 const ActorCard = ({ id, name, character, photo }) => {
+  const namePlaceholder = name.split(' ').map((n) => n[0]).join('');
+
   return (
     <Link className="actor-card" to={`#${id}`}>
-      <div className="actor-card__photo">
-        {photo
-          ? (
-            <img src={getProfileImg('w185', photo)} alt="" />
-          ) : (
-            <Icon icon={IconNames.picture48} />
-          )}
+      <div className="actor-card__photo" data-placeholder={namePlaceholder}>
+        {photo && (
+          <img src={getProfileImg('w185', photo)} alt="" />
+        )}
       </div>
 
       <div className="actor-card__info">

@@ -3,41 +3,20 @@ import { useParams } from 'react-router-dom';
 import { format, getMinutes, parseISO } from 'date-fns';
 
 import { getMediaDetails } from 'api';
-import { Breakpoints, MediaTypeNames } from 'utils/const';
+import { MediaTypeNames } from 'utils/const';
+import { actorsBreakpoints, videosBreakpoints } from 'utils/settings';
 import { getBackdropUrl, getUTCRuntime } from 'utils/helpers';
+
 import Page from 'components/page';
 import Collection from 'components/collection';
 import Card from 'components/card';
+import VideoPlayer from 'components/video-player';
 
 // OWN COMPONENTS
 import MediaInfo from './components/media-info';
 import ActorCard from './components/actor-card';
 import Similar from './components/similar';
-
 import './style.scss';
-
-const collectionBreakpoints = {
-  [Breakpoints.extraSmall]: {
-    slidesPerView: 3,
-    slidesPerGroup: 3,
-  },
-  [Breakpoints.small]: {
-    slidesPerView: 4.5,
-    slidesPerGroup: 4.5,
-  },
-  [Breakpoints.medium]: {
-    slidesPerView: 6,
-    slidesPerGroup: 6,
-  },
-  [Breakpoints.large]: {
-    slidesPerView: 7,
-    slidesPerGroup: 7,
-  },
-  [Breakpoints.extraLarge]: {
-    slidesPerView: 8,
-    slidesPerGroup: 8,
-  },
-};
 
 const WatchPage = () => {
   const { mediaType, id } = useParams();
@@ -76,9 +55,26 @@ const WatchPage = () => {
         overview={data.overview}
       />
 
+      {data.videos && (
+        <Collection
+          title={`Видео | ${data.name || data.title}`}
+          breakpoints={videosBreakpoints}
+        >
+          {data.videos.results.map((video) => (
+            <VideoPlayer
+              key={video.id}
+              id={video.id}
+              videoKey={video.key}
+              name={video.name}
+              site={video.site}
+            />
+          ))}
+        </Collection>
+      )}
+
       <Collection
         title="Актеры"
-        breakpoints={collectionBreakpoints}
+        breakpoints={actorsBreakpoints}
       >
         {data.credits.cast.map((cast) => (
           <ActorCard

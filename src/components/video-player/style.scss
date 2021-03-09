@@ -1,0 +1,22 @@
+@import 'src/styles/utils/extends';
+@import 'src/styles/utils/mixins';
+
+.video-player {}
+
+.video-player__body {
+  position: relative;
+  width: 100%;
+  padding-top: calc(100% / 16 * 9);
+  background-color: var(--background-tertiary);
+  border-radius: 4px;
+  
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.video-player__title {
+  @extend .text-ellipsis;
+}

@@ -8,7 +8,7 @@ import { ISO_3166_1 } from 'utils/const';
  * @param {string} posterPath - Poster path
  */
 export const getPosterUrl = (size, posterPath) => (
-  `https://image.tmdb.org/t/p/${size}/${posterPath}`
+  `https://image.tmdb.org/t/p/${size}${posterPath}`
 );
 
 /**

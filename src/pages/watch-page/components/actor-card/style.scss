@@ -19,6 +19,18 @@
   background-color: var(--background-tertiary);
   border-radius: 50%;
 
+  &:empty:before {
+    content: attr(data-placeholder);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: var(--label-color-primary);
+    font-size: var(--font-size-large-title);
+  }
+
   &::after {
     content: '';
     position: absolute;

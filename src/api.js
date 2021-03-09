@@ -16,7 +16,7 @@ const getTrendingTvSeries = () => (
 );
 
 const getMediaDetails = ({ mediaType, id }) => (
-  instance.get(`/${mediaType}/${id}?api_key=${API_KEY}&append_to_response=credits,similar,content_ratings&language=${LANG}`)
+  instance.get(`/${mediaType}/${id}?api_key=${API_KEY}&append_to_response=credits,similar,content_ratings,videos&language=${LANG}`)
 );
 
 export {
