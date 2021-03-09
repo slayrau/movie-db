@@ -1,4 +1,4 @@
-import ActionType from 'src/redux/types/movies';
+import ActionType from 'src/redux/types/tv-series';
 
 const initialState = {
   data: [],
@@ -10,17 +10,10 @@ const reducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case ActionType.SET_MOVIES: {
+    case ActionType.SET_TV_SERIES: {
       return {
         ...state,
         data: payload,
-      };
-    }
-
-    case ActionType.SET_LOADING: {
-      return {
-        ...state,
-        loading: payload,
       };
     }
 
@@ -31,7 +24,14 @@ const reducer = (state = initialState, action) => {
       };
     }
 
-    case ActionType.RESET_MOVIES: {
+    case ActionType.SET_LOADING: {
+      return {
+        ...state,
+        loading: payload,
+      };
+    }
+
+    case ActionType.RESET_TV_SERIES: {
       return initialState;
     }
 
