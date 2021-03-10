@@ -1,5 +1,5 @@
-const Selectors = {
+const Selector = {
   movies: (state) => state.movies,
 };
 
-export default Selectors;
+export default Selector;

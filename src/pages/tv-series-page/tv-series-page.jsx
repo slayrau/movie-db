@@ -13,7 +13,7 @@ import './style.scss';
 
 const TvSeriesPage = () => {
   const dispatch = useDispatch();
-  const tvSeries = useSelector(Selector.selectTvSeries);
+  const tvSeries = useSelector(Selector.tvSeries);
 
   useEffect(() => {
     dispatch(Operation.getTvSeries());

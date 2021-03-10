@@ -1,5 +1,5 @@
 const Selector = {
-  tvSeries: (state) => state.tvSeries,
+  genreId: (state) => state.genre.id,
 };
 
 export default Selector;

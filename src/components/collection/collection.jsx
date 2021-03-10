@@ -18,21 +18,19 @@ const Collection = ({ title, breakpoints, children }) => {
   }, []);
 
   return (
-    <section className="collection">
-      <div className="container">
-        <div className="collection__header">
-          <h2 className="collection__title">{title}</h2>
-        </div>
+    <section className="collection container">
+      <div className="collection__header">
+        <h2 className="collection__title">{title}</h2>
+      </div>
 
-        <div
-          className="collection__body"
-          onMouseEnter={disableOvescrollX}
-          onMouseLeave={enableOverscrollX}
-        >
-          <Slider breakpoints={breakpoints}>
-            {children}
-          </Slider>
-        </div>
+      <div
+        className="collection__body"
+        onMouseEnter={disableOvescrollX}
+        onMouseLeave={enableOverscrollX}
+      >
+        <Slider breakpoints={breakpoints}>
+          {children}
+        </Slider>
       </div>
     </section>
   );

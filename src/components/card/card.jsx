@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { MediaTypeNames } from 'src/utils/const';
+import { MediaTypes } from 'src/utils/const';
 import { getPosterUrl } from 'src/utils/helpers';
 import './style.scss';
 
@@ -10,7 +10,7 @@ const Card = ({ id, mediaType, title, posterPath }) => {
     <Link
       className="card"
       to={`/watch/${mediaType}/${id}`}
-      aria-label={`${MediaTypeNames[mediaType]} - ${title}`}
+      aria-label={`${MediaTypes[mediaType].name} - ${title}`}
     >
       <div className="card__container">
         <div className="card__poster">

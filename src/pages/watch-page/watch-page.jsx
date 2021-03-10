@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { format, getMinutes, parseISO } from 'date-fns';
 
 import { getMediaDetails } from 'src/api';
-import { MediaTypeNames } from 'src/utils/const';
+import { MediaTypes } from 'src/utils/const';
 import { actorsBreakpoints, videosBreakpoints } from 'src/utils/settings';
 import { getBackdropUrl, getUTCRuntime } from 'src/utils/helpers';
 
@@ -41,7 +41,7 @@ const WatchPage = () => {
     <Page className="watch-page">
       <MediaInfo
         title={data.title || data.name}
-        mediaType={MediaTypeNames[mediaType]}
+        mediaType={MediaTypes[mediaType].name}
         backdropSrc={getBackdropUrl('original', data.backdrop_path)}
         releaseDate={format(parseISO(data.release_date || data.first_air_date), 'yyyy')}
         duration={

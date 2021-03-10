@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import { navigation, IconNames } from 'src/utils/const';
+import { Navigation, IconNames } from 'src/utils/const';
 import Icon from 'src/components/icon';
 import './style.scss';
 
@@ -13,9 +13,9 @@ const AppHeader = () => {
             <li className="app-header__item">
               <NavLink
                 className="app-header__link"
-                to={navigation.main.url}
+                to={Navigation.main.url}
                 exact
-                aria-label={navigation.main.title}
+                aria-label={Navigation.main.title}
               >
                 <Icon icon={IconNames.logo} className="app-header__icon-logo" />
               </NavLink>
@@ -24,30 +24,30 @@ const AppHeader = () => {
             <li className="app-header__item">
               <NavLink
                 className="app-header__link"
-                to={navigation.tvSeries.url}
+                to={Navigation.tvSeries.url}
                 exact
               >
-                {navigation.tvSeries.title}
+                {Navigation.tvSeries.title}
               </NavLink>
             </li>
 
             <li className="app-header__item">
               <NavLink
                 className="app-header__link"
-                to={navigation.movies.url}
+                to={Navigation.movies.url}
                 exact
               >
-                {navigation.movies.title}
+                {Navigation.movies.title}
               </NavLink>
             </li>
 
             <li className="app-header__item">
               <NavLink
                 className="app-header__link"
-                to={navigation.search.url}
+                to={Navigation.search.url}
                 exact
-                aria-label={navigation.search.title}
-                title={navigation.search.title}
+                aria-label={Navigation.search.title}
+                title={Navigation.search.title}
               >
                 <Icon icon={IconNames.search} />
               </NavLink>

@@ -10,6 +10,7 @@ import { ReactComponent as Spinner16 } from 'src/assets/icons/16/spinner.svg';
 import { ReactComponent as Spinner24 } from 'src/assets/icons/24/spinner.svg';
 import { ReactComponent as Spinner32 } from 'src/assets/icons/32/spinner.svg';
 import { ReactComponent as Spinner44 } from 'src/assets/icons/44/spinner.svg';
+import { ReactComponent as Dropdown24 } from 'src/assets/icons/24/dropdown.svg';
 import { ReactComponent as LogoIcon } from 'src/assets/images/logo.svg';
 import './style.scss';
 
@@ -23,6 +24,7 @@ const ICON_TYPES = {
   [IconNames.spinner24]: Spinner24,
   [IconNames.spinner32]: Spinner32,
   [IconNames.spinner44]: Spinner44,
+  [IconNames.dropdown24]: Dropdown24,
 };
 
 const Icon = ({ icon, className }) => {
@@ -46,6 +48,7 @@ Icon.propTypes = {
     IconNames.spinner24,
     IconNames.spinner32,
     IconNames.spinner44,
+    IconNames.dropdown24,
   ]).isRequired,
   className: PropTypes.string,
 };
