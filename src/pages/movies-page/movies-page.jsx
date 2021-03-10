@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { MediaTypes, MovieGenres } from 'src/utils/const';
 
-import MoviesSelector from 'src/redux/selectors/movies';
 import GenreSelector from 'src/redux/selectors/genre';
 import SortSelector from 'src/redux/selectors/sort';
+import MoviesSelector from 'src/redux/selectors/movies';
 import Operation from 'src/redux/operations/movies';
 import ActionCreator from 'src/redux/actions/movies';
 

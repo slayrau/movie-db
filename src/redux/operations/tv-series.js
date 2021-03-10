@@ -1,10 +1,10 @@
-import { getTrendingTvSeries } from 'src/api';
+import { getDiscover } from 'src/api';
 import ActionCreator from 'src/redux/actions/tv-series';
 
 const Operations = {
-  getTvSeries: () => async (dispatch) => {
+  getTvSeries: ({ mediaType, genre, sort }) => async (dispatch) => {
     try {
-      const response = await getTrendingTvSeries();
+      const response = await getDiscover({ mediaType, genre, sort });
 
       dispatch(ActionCreator.setTvSeries(response.data.results));
       dispatch(ActionCreator.setError(null));
