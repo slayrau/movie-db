@@ -4,5 +4,6 @@ export { default as ISO_3166_1 } from './iso-3166-1';
 export { default as MediaTypes } from './media-types';
 export { default as Navigation } from './navigation';
 export { default as VideoSitesToUrl } from './video-sites-to-url';
+export { SortTypes, DEFAULT_SORT_ID } from './sort-types';
 export { ALL_GENRES, MovieGenres, TvGenres } from './genres';
 export { API_KEY, LANG } from './api';

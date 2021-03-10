@@ -6,7 +6,11 @@
 }
 
 .page__sub-header {
-  padding: 20px 0;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+
+  margin: 20px 0 !important;
 }
 
 .page__content {

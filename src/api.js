@@ -18,11 +18,11 @@ const getMediaDetails = ({ mediaType, id }) => (
   instance.get(`/${mediaType}/${id}?api_key=${API_KEY}&append_to_response=credits,similar,content_ratings,videos&language=${LANG}`)
 );
 
-const getDiscover = ({ mediaType, genre }) => {
+const getDiscover = ({ mediaType, genre, sort }) => {
   const formatedGenre = genre !== ALL_GENRES ? `&with_genres=${genre}` : '';
 
   return (
-    instance.get(`/discover/${mediaType}?api_key=${API_KEY}${formatedGenre}&language=${LANG}`)
+    instance.get(`/discover/${mediaType}?api_key=${API_KEY}${formatedGenre}&sort_by=${sort}&language=${LANG}`)
   );
 };
 

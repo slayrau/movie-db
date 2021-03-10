@@ -2,9 +2,9 @@ import { getDiscover } from 'src/api';
 import ActionCreator from 'src/redux/actions/movies';
 
 const Operations = {
-  getMovies: ({ mediaType, genre }) => async (dispatch) => {
+  getMovies: ({ mediaType, genre, sort }) => async (dispatch) => {
     try {
-      const response = await getDiscover({ mediaType, genre });
+      const response = await getDiscover({ mediaType, genre, sort });
 
       dispatch(ActionCreator.setMovies(response.data.results));
       dispatch(ActionCreator.setError(null));

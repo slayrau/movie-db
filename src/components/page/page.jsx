@@ -6,10 +6,8 @@ import './style.scss';
 const Page = ({ className, subHeader, children }) => (
   <main className={cn('page', className)}>
     {subHeader && (
-      <div className="page__sub-header">
-        <div className="container">
-          {subHeader}
-        </div>
+      <div className="page__sub-header container">
+        {subHeader}
       </div>
     )}
 

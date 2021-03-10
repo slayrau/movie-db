@@ -6,7 +6,7 @@ import { IconNames } from 'src/utils/const';
 import Icon from 'src/components/icon';
 import './style.scss';
 
-const Select = ({ title, data, selected, onSelectClick }) => {
+const Select = ({ title, column, data, selected, onSelectClick }) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
 
   const handleToggleDropdown = () => {
@@ -36,7 +36,11 @@ const Select = ({ title, data, selected, onSelectClick }) => {
 
       {dropdownIsOpen && (
         <div className="select__dropdown">
-          <ul className="select__list">
+          <ul
+            className={cn('select__list', {
+              'select__list--column': column,
+            })}
+          >
             {data.map((it) => (
               <li className="select__item" key={it.id}>
                 <button
@@ -60,12 +64,17 @@ const Select = ({ title, data, selected, onSelectClick }) => {
 
 Select.propTypes = {
   title: PropTypes.string.isRequired,
+  column: PropTypes.bool,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   selected: PropTypes.shape({
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     name: PropTypes.string,
   }).isRequired,
   onSelectClick: PropTypes.func.isRequired,
+};
+
+Select.defaultProps = {
+  column: false,
 };
 
 export default Select;
