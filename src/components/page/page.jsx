@@ -11,9 +11,7 @@ const Page = ({ className, subHeader, children }) => (
       </div>
     )}
 
-    <div className="page__content">
-      {children}
-    </div>
+    {children}
   </main>
 );
 

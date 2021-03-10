@@ -24,8 +24,4 @@
   @media (min-width: getBreakpoint(large)) {
     grid-template-columns: repeat(5, 1fr);
   }
-  
-  @media (min-width: getBreakpoint(extra-large)) {
-    grid-template-columns: repeat(6, 1fr);
-  }
 }

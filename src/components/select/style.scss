@@ -27,11 +27,21 @@
   text-align: left;
   font-size: var(--font-size-body);
   background-color: var(--background-primary);
-  border: 1px solid var(--label-color-secondary);
+  border: 1px solid var(--label-color-tertiary);
   cursor: pointer;
+  outline: none;
+
+  &:hover {
+    border-color: var(--label-color-secondary);
+  }
+
+  &[data-focus-visible-added] {
+    box-shadow: 0 0 0 4px var(--system-red);
+  }
 
   &--open {
     background-color: var(--background-secondary);
+    border-color: var(--label-color-secondary);
   }
 
   .icon {
@@ -91,9 +101,14 @@
   text-align: left;
   white-space: nowrap;
   cursor: pointer;
-
+  outline: none;
+  
   &:hover {
     text-decoration: underline;
+  }
+    
+  &[data-focus-visible-added] {
+    box-shadow: 0 0 0 4px var(--system-red);
   }
 
   &--selected {

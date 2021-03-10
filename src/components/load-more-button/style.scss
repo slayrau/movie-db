@@ -1,0 +1,29 @@
+@import 'src/styles/utils/extends';
+@import 'src/styles/utils/mixins';
+
+.load-more-button {
+  @extend .reset-button;
+
+  width: 100%;
+  height: var(--button-size);
+  margin: 20px 0;
+
+  color: var(--label-color-primary);
+  font-size: var(--font-size-body);
+  border: 1px solid var(--label-color-tertiary);
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    border-color: var(--label-color-secondary);
+  }
+
+  &[data-focus-visible-added] {
+    box-shadow: 0 0 0 4px var(--system-red);
+  }
+
+  &:disabled {
+    border-color: var(--label-color-tertiary);
+    cursor: progress;
+  }
+}
