@@ -1,9 +1,14 @@
 import ActionType from 'src/redux/types/tv-series';
 
 const ActionCreator = {
-  setTvSeries: (tvSeries) => ({
+  setTvSeries: ({ results, page, totalPages }) => ({
     type: ActionType.SET_TV_SERIES,
-    payload: tvSeries,
+    payload: { results, page, totalPages },
+  }),
+
+  setMoreTvSeries: ({ results, page }) => ({
+    type: ActionType.SET_MORE_TV_SERIES,
+    payload: { results, page },
   }),
 
   setLoading: (status) => ({

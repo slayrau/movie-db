@@ -4,6 +4,8 @@ const initialState = {
   data: [],
   loading: true,
   error: null,
+  page: null,
+  totalPages: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,9 +13,23 @@ const reducer = (state = initialState, action) => {
 
   switch (type) {
     case ActionType.SET_TV_SERIES: {
+      const { results, page, totalPages } = payload;
+
       return {
         ...state,
-        data: payload,
+        data: results,
+        page,
+        totalPages,
+      };
+    }
+
+    case ActionType.SET_MORE_TV_SERIES: {
+      const { results, page } = payload;
+
+      return {
+        ...state,
+        data: [...state.data, ...results],
+        page,
       };
     }
 
