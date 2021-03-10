@@ -8,11 +8,11 @@ const Similar = ({ title, children }) => {
     <section className="watch-page__similar similar">
       <div className="container">
         <h2 className="similar__title">{title}</h2>
-      </div>
 
-      <CardGrid>
-        {children}
-      </CardGrid>
+        <CardGrid>
+          {children}
+        </CardGrid>
+      </div>
     </section>
   );
 };

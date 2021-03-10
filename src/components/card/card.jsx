@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import posterPlaceholder from 'src/assets/images/poster-placeholder.png';
 import { MediaTypes } from 'src/utils/const';
 import { getPosterUrl } from 'src/utils/helpers';
 import './style.scss';
@@ -14,7 +15,12 @@ const Card = ({ id, mediaType, title, posterPath }) => {
     >
       <div className="card__container">
         <div className="card__poster">
-          <img src={getPosterUrl('w300', posterPath)} alt={`Постер ${title}`} />
+          {posterPath
+            ? (
+              <img src={getPosterUrl('w300', posterPath)} alt={`Постер ${title}`} />
+            ) : (
+              <img src={posterPlaceholder} alt="Постер отсутствует" />
+            )}
         </div>
         <div className="card__footer">
           <h3 className="card__title" title={title}>{title}</h3>
