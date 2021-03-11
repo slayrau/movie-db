@@ -22,9 +22,14 @@ const getDiscover = ({ mediaType, genre, sort, page }) => (
   instance.get(`/discover/${mediaType}?api_key=${API_KEY}&with_genres=${genre}&sort_by=${sort}&page=${page}&language=${LANG}`)
 );
 
+const getSearch = ({ mediaType, query, page }) => (
+  instance.get(`/search/${mediaType}?api_key=${API_KEY}&query=${query}&page=${page}&language=${LANG}`)
+);
+
 export {
   getTrendingMovies,
   getTrendingTvSeries,
   getMediaDetails,
   getDiscover,
+  getSearch,
 };

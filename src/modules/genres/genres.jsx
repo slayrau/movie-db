@@ -11,7 +11,6 @@ import './style.scss';
 const Genres = ({ genres }) => {
   const dispatch = useDispatch();
   const currentGenreId = useSelector(Selector.genreId);
-  const selectedGenre = genres.find((genre) => String(genre.id) === String(currentGenreId));
 
   const handleSelect = (evt) => {
     dispatch(ActionCreator.setGenreId(evt.target.id));
@@ -27,7 +26,7 @@ const Genres = ({ genres }) => {
     <Select
       title=""
       data={genres}
-      selected={selectedGenre}
+      selectedId={currentGenreId}
       onSelectClick={handleSelect}
     />
   );

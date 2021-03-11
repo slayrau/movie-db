@@ -7,10 +7,11 @@ import { IconNames } from 'src/utils/const';
 import Icon from 'src/components/icon';
 import './style.scss';
 
-const Select = ({ title, column, data, selected, onSelectClick }) => {
+const Select = ({ title, column, data, selectedId, onSelectClick }) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
   const selectRef = useRef();
   const escKeyPressed = useKeyPress('Escape');
+  const selectedName = data.find((it) => String(it.id) === String(selectedId)).name;
 
   useOnClickOutside(selectRef, () => {
     if (dropdownIsOpen) {
@@ -44,7 +45,7 @@ const Select = ({ title, column, data, selected, onSelectClick }) => {
           type="button"
           onClick={handleToggleDropdown}
         >
-          {selected.name}
+          {selectedName}
           <Icon icon={IconNames.dropdown24} />
         </button>
       </div>
@@ -60,7 +61,7 @@ const Select = ({ title, column, data, selected, onSelectClick }) => {
               <li className="select__item" key={it.id}>
                 <button
                   className={cn('select__button', {
-                    'select__button--selected': String(it.id) === String(selected.id),
+                    'select__button--selected': String(it.id) === String(selectedId),
                   })}
                   id={it.id}
                   type="button"
@@ -81,10 +82,7 @@ Select.propTypes = {
   title: PropTypes.string.isRequired,
   column: PropTypes.bool,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  selected: PropTypes.shape({
-    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    name: PropTypes.string,
-  }).isRequired,
+  selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   onSelectClick: PropTypes.func.isRequired,
 };
 

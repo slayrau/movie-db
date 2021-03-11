@@ -1,0 +1,34 @@
+.search-page {}
+
+.search-page__row {
+  display: flex;
+  margin-top: 20px;
+}
+
+.search-page__input {
+  margin: 0;
+  margin-left: 20px;
+  padding: 0 12px;
+  width: 100%;
+  
+  color: var(--label-color-primary);
+  border: 1px solid var(--label-color-tertiary);
+  background-color: var(--background-primary);
+  outline: none;
+  
+  &[data-focus-visible-added] {
+    position: relative;
+    box-shadow: 0 0 0 4px var(--system-red);
+    border-color: var(--label-color-secondary);
+  }
+}
+
+.search-page__error-message {
+  margin: 10vh 0;
+  font-size: var(--font-size-large-title); 
+  text-align: center;
+}
+
+.search-page .card-grid {
+  margin-top: 20px;
+}

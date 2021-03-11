@@ -1,0 +1,115 @@
+@import 'src/styles/utils/extends';
+@import 'src/styles/utils/mixins';
+@import 'src/styles/utils/functions';
+@import 'src/styles/utils/variables';
+
+.formik-select {
+  position: relative;
+}
+
+.formik-select__header {}
+
+.formik-select__title {
+  margin: 0;
+  font-size: var(--font-size-title-2);
+}
+
+.formik-select__toggler {
+  @extend .reset-button;
+
+  position: relative;
+  height: var(--button-size);
+  padding: 0 12px;
+  padding-right: var(--button-size);
+  min-width: calc(var(--button-size) * 4);
+
+  color: var(--label-color-primary);
+  text-align: left;
+  font-size: var(--font-size-body);
+  background-color: var(--background-primary);
+  border: 1px solid var(--label-color-tertiary);
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    border-color: var(--label-color-secondary);
+  }
+
+  &[data-focus-visible-added] {
+    box-shadow: 0 0 0 4px var(--system-red);
+  }
+
+  &--open {
+    background-color: var(--background-secondary);
+    border-color: var(--label-color-secondary);
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%) rotate(180deg);
+    transition: transform 0.2s;
+  }
+
+  &--open .icon {
+    transform: translateY(-50%) rotate(0);
+  }
+}
+
+.formik-select__dropdown {
+  position: absolute;
+  z-index: 1;
+
+  margin-top: -1px;
+  padding: 8px 0;
+  min-width: 100%;
+  
+  background-color: var(--background-primary);
+  border: 1px solid var(--label-color-secondary);
+  opacity: 0.92;
+}
+
+.formik-select__list {
+  @extend .reset-list;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  
+  &--grid {
+    @media (min-width: getBreakpoint(small)) {
+      grid-template-columns: repeat(2, auto);
+    }
+    
+    @media (min-width: getBreakpoint(medium)) {
+      grid-template-columns: repeat(3, auto);
+    }
+  }
+}
+
+.formik-select__item {}
+
+.formik-select__select-button {
+  @extend .reset-button;
+
+  width: 100%;
+  padding: 6px 12px;
+  
+  color: var(--label-color-primary);
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+    
+  &[data-focus-visible-added] {
+    box-shadow: 0 0 0 4px var(--system-red);
+  }
+
+  &--selected {
+    color: var(--system-red) !important;
+  }
+}

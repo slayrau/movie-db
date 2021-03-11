@@ -11,7 +11,6 @@ import './style.scss';
 const Sort = () => {
   const dispatch = useDispatch();
   const currentSortId = useSelector(Selector.sortId);
-  const selectedSort = SortTypes.find((sort) => sort.id === currentSortId);
 
   const handleSelectClick = (evt) => {
     dispatch(ActionCreator.setSortId(evt.target.id));
@@ -27,7 +26,7 @@ const Sort = () => {
     <Select
       title=""
       data={SortTypes}
-      selected={selectedSort}
+      selectedId={currentSortId}
       onSelectClick={handleSelectClick}
       column
     />
