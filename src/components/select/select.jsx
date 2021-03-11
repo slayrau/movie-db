@@ -1,15 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import { useKeyPress } from 'src/hooks';
+import { useKeyPress, useOnClickOutside } from 'src/hooks';
 import { IconNames } from 'src/utils/const';
 import Icon from 'src/components/icon';
 import './style.scss';
 
 const Select = ({ title, column, data, selected, onSelectClick }) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
+  const selectRef = useRef();
   const escKeyPressed = useKeyPress('Escape');
+
+  useOnClickOutside(selectRef, () => {
+    if (dropdownIsOpen) {
+      setDropdownOpen(false);
+    }
+  });
 
   useEffect(() => {
     if (escKeyPressed) {
@@ -27,7 +34,7 @@ const Select = ({ title, column, data, selected, onSelectClick }) => {
   };
 
   return (
-    <section className="select">
+    <section className="select" ref={selectRef}>
       <div className="select__header">
         <h2 className="select__title">{title}</h2>
         <button
