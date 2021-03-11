@@ -16,12 +16,17 @@
   border-radius: 4px;
 }
 
-.card-skeleton__text {
+.card-skeleton__text,
+.card-skeleton__date {
   width: 70%;
   height: 16px;
   margin: 0 auto;
-  margin-top: 5px;
+  margin-top: 4px;
   border-radius: 4px;
+}
+
+.card-skeleton__date {
+  width: 40px;
 }
 
 .card-skeleton__animate {

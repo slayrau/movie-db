@@ -66,6 +66,8 @@ const MoviesPage = () => {
                   mediaType={mediaType}
                   title={it.title || it.name}
                   posterPath={it.poster_path}
+                  releaseDate={it.release_date || it.first_air_date}
+                  voteAverage={it.vote_average}
                 />
               ))
             )}
