@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { API_KEY, LANG, ALL_GENRES } from 'src/utils/const';
+import { API_KEY, LANG } from 'src/utils/const';
 
 const instance = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -18,14 +18,9 @@ const getMediaDetails = ({ mediaType, id }) => (
   instance.get(`/${mediaType}/${id}?api_key=${API_KEY}&append_to_response=credits,similar,content_ratings,videos&language=${LANG}`)
 );
 
-const getDiscover = ({ mediaType, genre, sort, page }) => {
-  const formatedGenre = genre !== ALL_GENRES ? `&with_genres=${genre}` : '';
-  const formatedPage = page ? `&page=${page}` : '';
-
-  return (
-    instance.get(`/discover/${mediaType}?api_key=${API_KEY}${formatedGenre}&sort_by=${sort}${formatedPage}&language=${LANG}`)
-  );
-};
+const getDiscover = ({ mediaType, genre, sort, page }) => (
+  instance.get(`/discover/${mediaType}?api_key=${API_KEY}&with_genres=${genre}&sort_by=${sort}&page=${page}&language=${LANG}`)
+);
 
 export {
   getTrendingMovies,

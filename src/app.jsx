@@ -2,9 +2,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import AppHeader from 'src/components/app-header';
 import HomePage from 'src/pages/home-page';
-import TvSeriesPage from 'src/pages/tv-series-page';
-import MoviesPage from 'src/pages/movies-page';
-import SearchPage from 'src/pages/search-page';
+import DiscoverPage from 'src/pages/discover-page';
 import WatchPage from 'src/pages/watch-page';
 
 const App = () => {
@@ -14,9 +12,8 @@ const App = () => {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/tv-series" component={TvSeriesPage} />
-        <Route exact path="/movies" component={MoviesPage} />
-        <Route exact path="/search" component={SearchPage} />
+        <Route exact path="/tv" component={DiscoverPage} />
+        <Route exact path="/movie" component={DiscoverPage} />
         <Route path="/watch/:mediaType/:id" component={WatchPage} />
       </Switch>
     </>

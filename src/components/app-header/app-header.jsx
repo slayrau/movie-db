@@ -24,20 +24,20 @@ const AppHeader = () => {
             <li className="app-header__item">
               <NavLink
                 className="app-header__link"
-                to={Navigation.tvSeries.url}
+                to={Navigation.tv.url}
                 exact
               >
-                {Navigation.tvSeries.title}
+                {Navigation.tv.title}
               </NavLink>
             </li>
 
             <li className="app-header__item">
               <NavLink
                 className="app-header__link"
-                to={Navigation.movies.url}
+                to={Navigation.movie.url}
                 exact
               >
-                {Navigation.movies.title}
+                {Navigation.movie.title}
               </NavLink>
             </li>
 

@@ -1,6 +1,6 @@
 import { addMinutes } from 'date-fns';
 
-import { ISO_3166_1 } from 'src/utils/const';
+import { ISO_3166_1, TvGenres, MovieGenres, MediaTypes } from 'src/utils/const';
 
 /**
  *
@@ -39,4 +39,13 @@ export const getUTCRuntime = (runtime) => {
   const runtimeInDate = addMinutes(zeroDate, runtime);
   const runtimeInDateWithFixedTimezone = addMinutes(runtimeInDate, timezoneOffset);
   return runtimeInDateWithFixedTimezone;
+};
+
+export const getDiscoverGenres = (mediaType) => {
+  const genres = {
+    [MediaTypes.tv.id]: TvGenres,
+    [MediaTypes.movie.id]: MovieGenres,
+  };
+
+  return genres[mediaType];
 };

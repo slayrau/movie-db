@@ -3,12 +3,12 @@ const Navigation = {
     url: '/',
     title: 'Главная',
   },
-  tvSeries: {
-    url: '/tv-series',
+  tv: {
+    url: '/tv',
     title: 'Сериалы',
   },
-  movies: {
-    url: '/movies',
+  movie: {
+    url: '/movie',
     title: 'Фильмы',
   },
   search: {

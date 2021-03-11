@@ -1,4 +1,4 @@
-const ALL_GENRES = 'ALL_GENRES';
+const ALL_GENRES = '';
 
 const MovieGenres = [
   {

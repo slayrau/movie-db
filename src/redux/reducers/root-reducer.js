@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux';
 
-import movies from './movies';
-import tvSeries from './tv-series';
+import discover from './discover';
 import genre from './genre';
 import sort from './sort';
 
 const rootReducer = combineReducers({
-  movies,
-  tvSeries,
+  discover,
   genre,
   sort,
 });

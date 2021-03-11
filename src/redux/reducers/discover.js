@@ -1,29 +1,29 @@
-import ActionType from 'src/redux/types/tv-series';
+import ActionType from 'src/redux/types/discover';
 
 const initialState = {
   data: [],
   loading: true,
-  error: null,
-  page: null,
-  totalPages: null,
+  error: false,
+  page: 1,
+  total_pages: null,
 };
 
 const reducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case ActionType.SET_TV_SERIES: {
-      const { results, page, totalPages } = payload;
+    case ActionType.SET_RESULTS: {
+      const { results, page, total_pages } = payload;
 
       return {
         ...state,
         data: results,
         page,
-        totalPages,
+        total_pages,
       };
     }
 
-    case ActionType.SET_MORE_TV_SERIES: {
+    case ActionType.SET_MORE_RESULTS: {
       const { results, page } = payload;
 
       return {
@@ -33,21 +33,25 @@ const reducer = (state = initialState, action) => {
       };
     }
 
-    case ActionType.SET_ERROR: {
-      return {
-        ...state,
-        error: payload,
-      };
-    }
-
     case ActionType.SET_LOADING: {
+      const { status } = payload;
+
       return {
         ...state,
-        loading: payload,
+        loading: status,
       };
     }
 
-    case ActionType.RESET_TV_SERIES: {
+    case ActionType.SET_ERROR: {
+      const { error } = payload;
+
+      return {
+        ...state,
+        error,
+      };
+    }
+
+    case ActionType.RESET_RESULTS: {
       return initialState;
     }
 
