@@ -1,13 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
+import { useKeyPress } from 'src/hooks';
 import { IconNames } from 'src/utils/const';
 import Icon from 'src/components/icon';
 import './style.scss';
 
 const Select = ({ title, column, data, selected, onSelectClick }) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
+  const escKeyPressed = useKeyPress('Escape');
+
+  useEffect(() => {
+    if (escKeyPressed) {
+      setDropdownOpen(false);
+    }
+  }, [escKeyPressed]);
 
   const handleToggleDropdown = () => {
     setDropdownOpen((prev) => !prev);
