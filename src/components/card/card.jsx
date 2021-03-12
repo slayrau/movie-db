@@ -3,12 +3,11 @@ import { getYear, parseISO } from 'date-fns';
 import PropTypes from 'prop-types';
 
 import posterPlaceholder from 'src/assets/images/poster-placeholder.png';
-import { MediaTypes } from 'src/utils/const';
-import { getPosterUrl } from 'src/utils/helpers';
+import { getPosterUrl, getMediaTypeName } from 'src/utils/helpers';
 import './style.scss';
 
 const Card = ({ id, mediaType, title, posterPath, releaseDate, voteAverage }) => {
-  const ariaTitle = `${MediaTypes[mediaType].name} - ${title}`;
+  const ariaTitle = `${getMediaTypeName(mediaType)} - ${title}`;
   const ariaDate = `Дата выхода - ${releaseDate}`;
   const ariaVoteAverage = `Рейтинг - ${voteAverage}`;
   const ariaCard = `${ariaTitle}. ${ariaDate}. ${voteAverage ? ariaVoteAverage : ''}`;

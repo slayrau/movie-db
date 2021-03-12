@@ -1,22 +1,9 @@
-import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Slider from './slider';
 import './style.scss';
 
 const Collection = ({ title, breakpoints, children }) => {
-  const disableOvescrollX = () => {
-    document.body.style.overscrollBehaviorX = 'none';
-  };
-
-  const enableOverscrollX = () => {
-    document.body.style.overscrollBehaviorX = '';
-  };
-
-  useEffect(() => {
-    enableOverscrollX();
-  }, []);
-
   return (
     <section className="collection container">
       <div className="collection__header">
@@ -25,8 +12,6 @@ const Collection = ({ title, breakpoints, children }) => {
 
       <div
         className="collection__body"
-        onMouseEnter={disableOvescrollX}
-        onMouseLeave={enableOverscrollX}
       >
         <Slider breakpoints={breakpoints}>
           {children}

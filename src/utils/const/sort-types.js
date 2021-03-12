@@ -10,6 +10,14 @@ const SortTypes = [
     name: 'Популярность, по возрастанию',
   },
   {
+    id: 'vote_average.desc',
+    name: 'Оценка, по убыванию',
+  },
+  {
+    id: 'vote_average.asc',
+    name: 'Оценка, по возрастанию',
+  },
+  {
     id: 'title.desc',
     name: 'Название, по убыванию',
   },

@@ -6,6 +6,10 @@ const instance = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
 });
 
+const getTrending = ({ mediaType, timeWindow }) => (
+  instance.get(`/trending/${mediaType}/${timeWindow}?api_key=${API_KEY}&language=${LANG}`)
+);
+
 const getTrendingMovies = () => (
   instance.get(`/trending/movie/day?api_key=${API_KEY}&language=${LANG}`)
 );
@@ -32,4 +36,5 @@ export {
   getMediaDetails,
   getDiscover,
   getSearch,
+  getTrending,
 };

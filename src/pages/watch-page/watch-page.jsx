@@ -3,18 +3,17 @@ import { useParams } from 'react-router-dom';
 import { format, getMinutes, parseISO } from 'date-fns';
 
 import { getMediaDetails } from 'src/api';
-import { MediaTypes } from 'src/utils/const';
 import { actorsBreakpoints, videosBreakpoints } from 'src/utils/settings';
-import { getBackdropUrl, getUTCRuntime } from 'src/utils/helpers';
+import { getBackdropUrl, getUTCRuntime, getMediaTypeName } from 'src/utils/helpers';
 
 import Page from 'src/components/page';
 import Collection from 'src/components/collection';
 import Card from 'src/components/card';
 import VideoPlayer from 'src/components/video-player';
+import ActorCard from 'src/components/actor-card';
 
 // OWN COMPONENTS
 import MediaInfo from './components/media-info';
-import ActorCard from './components/actor-card';
 import Similar from './components/similar';
 import './style.scss';
 
@@ -41,7 +40,7 @@ const WatchPage = () => {
     <Page className="watch-page">
       <MediaInfo
         title={data.title || data.name}
-        mediaType={MediaTypes[mediaType].name}
+        mediaTypeName={getMediaTypeName(mediaType)}
         backdropSrc={getBackdropUrl('original', data.backdrop_path)}
         releaseDate={format(parseISO(data.release_date || data.first_air_date), 'yyyy')}
         duration={
@@ -93,8 +92,10 @@ const WatchPage = () => {
             key={similar.id}
             id={similar.id}
             mediaType={mediaType}
-            title={similar.name || similar.title}
+            title={similar.title || similar.name}
             posterPath={similar.poster_path}
+            releaseDate={similar.release_date || similar.first_air_date}
+            voteAverage={similar.vote_average}
           />
         ))}
       </Similar>

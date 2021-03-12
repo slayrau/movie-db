@@ -69,6 +69,7 @@
     #000 calc(100% - 10px),
     transparent 100%
   );
+  scroll-snap-type: none !important;
 }
 
 .slider .swiper-slide {

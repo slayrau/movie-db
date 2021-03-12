@@ -17,7 +17,7 @@ const ActorCard = ({ id, name, character, photo }) => {
 
       <div className="actor-card__info">
         <p className="actor-card__name" title={name}>{name}</p>
-        <p className="actor-card__character" title={character}>{character}</p>
+        {character && <p className="actor-card__character" title={character}>{character}</p>}
       </div>
     </Link>
   );
@@ -26,12 +26,13 @@ const ActorCard = ({ id, name, character, photo }) => {
 ActorCard.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  character: PropTypes.string.isRequired,
+  character: PropTypes.string,
   photo: PropTypes.string,
 };
 
 ActorCard.defaultProps = {
   photo: '',
+  character: null,
 };
 
 export default ActorCard;

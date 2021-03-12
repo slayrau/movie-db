@@ -5,7 +5,7 @@ import './style.scss';
 
 const MediaInfo = ({
   title,
-  mediaType,
+  mediaTypeName,
   backdropSrc,
   releaseDate,
   duration,
@@ -20,7 +20,7 @@ const MediaInfo = ({
 
       <div className="container">
         <div className="media-info__content">
-          <p className="media-info__media-type">{mediaType}</p>
+          <p className="media-info__media-type">{mediaTypeName}</p>
 
           <h1 className="media-info__title">{title}</h1>
 
@@ -52,7 +52,7 @@ const MediaInfo = ({
 
 MediaInfo.propTypes = {
   title: PropTypes.string.isRequired,
-  mediaType: PropTypes.string.isRequired,
+  mediaTypeName: PropTypes.string.isRequired,
   backdropSrc: PropTypes.string.isRequired,
   releaseDate: PropTypes.string.isRequired,
   duration: PropTypes.string,
