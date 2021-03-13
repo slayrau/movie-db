@@ -30,6 +30,10 @@ const getSearch = ({ mediaType, query, page }) => (
   instance.get(`/search/${mediaType}?api_key=${API_KEY}&query=${query}&page=${page}&language=${LANG}`)
 );
 
+const getPerson = (id) => (
+  instance.get(`/person/${id}?api_key=${API_KEY}&language=${LANG}&append_to_response=movie_credits,tv_credits,external_ids,images`)
+);
+
 export {
   getTrendingMovies,
   getTrendingTvSeries,
@@ -37,4 +41,5 @@ export {
   getDiscover,
   getSearch,
   getTrending,
+  getPerson,
 };

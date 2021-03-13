@@ -1,0 +1,48 @@
+@import 'src/styles/utils/extends';
+@import 'src/styles/utils/mixins';
+
+.credits-list {
+
+}
+
+.credit-list__title {
+  margin-bottom: 20px; 
+}
+
+.credits-list__body {}
+
+.credits-list__list {
+  @extend .reset-list;
+
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 10px;
+}
+
+.credits-list__item {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 20px;
+  grid-template-columns: auto auto 1fr;
+}
+
+.credits-list__link {
+  color: var(--label-color-primary);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--system-red);
+  }
+}
+
+.credits-list__character {
+  margin: 0;
+  color: var(--label-color-secondary);
+}
+
+.credits-list__release-date {
+  position: relative;
+  margin: 0;
+  color: var(--label-color-secondary);
+  text-align: right;
+}

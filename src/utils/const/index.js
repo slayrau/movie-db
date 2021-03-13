@@ -7,3 +7,4 @@ export { default as VideoSitesToUrl } from './video-sites-to-url';
 export { SortTypes, DEFAULT_SORT_ID } from './sort-types';
 export { ALL_GENRES, MovieGenres, TvGenres } from './genres';
 export { API_KEY, LANG } from './api';
+export { default as Gender } from './gender';

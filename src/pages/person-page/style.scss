@@ -1,0 +1,56 @@
+@import 'src/styles/utils/extends';
+@import 'src/styles/utils/mixins';
+@import 'src/styles/utils/functions';
+@import 'src/styles/utils/variables';
+
+.person-page {}
+
+.person-page__content {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 20px;
+  padding: 20px 0;
+  
+  @media (min-width: getBreakpoint(small)) {
+  }
+  
+  @media (min-width: getBreakpoint(medium)) {
+    grid-template-columns: 300px 1fr;
+    grid-auto-flow: column;
+  }
+}
+
+.person-page__column {
+  width: 100%;
+
+  &--left {}
+
+  &--right {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+}
+
+.person-page__main-content {
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 44px;
+}
+
+.person-page__person-profile {
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 20px;
+
+  .social-links {
+    justify-self: center;
+  }
+}
+
+.person-page__person-photo-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px;
+}
+

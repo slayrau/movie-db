@@ -1,0 +1,27 @@
+.title {
+  margin: 0;
+
+  &--1 {
+    font-size: var(--font-size-title-1);
+  }
+
+  &--2 {
+    font-size: var(--font-size-title-2);
+  }
+
+  &--3 {
+    font-size: var(--font-size-title-3);
+  }
+
+  &--4 {
+    font-size: var(--font-size-title-4);
+  }
+
+  &--5 {
+    font-size: var(--font-size-title-5);
+  }
+
+  &--6 {
+    font-size: var(--font-size-title-6);
+  }
+}

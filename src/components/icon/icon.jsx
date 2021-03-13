@@ -11,6 +11,10 @@ import { ReactComponent as Spinner24 } from 'src/assets/icons/24/spinner.svg';
 import { ReactComponent as Spinner32 } from 'src/assets/icons/32/spinner.svg';
 import { ReactComponent as Spinner44 } from 'src/assets/icons/44/spinner.svg';
 import { ReactComponent as Dropdown24 } from 'src/assets/icons/24/dropdown.svg';
+import { ReactComponent as Facebook24 } from 'src/assets/icons/24/facebook.svg';
+import { ReactComponent as Instagram24 } from 'src/assets/icons/24/instagram.svg';
+import { ReactComponent as Twitter24 } from 'src/assets/icons/24/twitter.svg';
+import { ReactComponent as Cancel24 } from 'src/assets/icons/24/cancel.svg';
 import { ReactComponent as LogoIcon } from 'src/assets/images/logo.svg';
 import './style.scss';
 
@@ -25,6 +29,10 @@ const ICON_TYPES = {
   [IconNames.spinner32]: Spinner32,
   [IconNames.spinner44]: Spinner44,
   [IconNames.dropdown24]: Dropdown24,
+  [IconNames.facebook24]: Facebook24,
+  [IconNames.instagram24]: Instagram24,
+  [IconNames.twitter24]: Twitter24,
+  [IconNames.cancel24]: Cancel24,
 };
 
 const Icon = ({ icon, className }) => {
@@ -49,6 +57,10 @@ Icon.propTypes = {
     IconNames.spinner32,
     IconNames.spinner44,
     IconNames.dropdown24,
+    IconNames.facebook24,
+    IconNames.instagram24,
+    IconNames.twitter24,
+    IconNames.cancel24,
   ]).isRequired,
   className: PropTypes.string,
 };

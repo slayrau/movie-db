@@ -1,0 +1,26 @@
+@import 'src/styles/utils/extends';
+@import 'src/styles/utils/mixins';
+
+.person-info {}
+
+.person-info__title {
+  margin-bottom: 20px
+}
+
+.person-info__list {
+  @extend .reset-list;
+
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 10px;
+}
+
+.person-info__item {
+  display: flex;
+  flex-direction: column;
+  color: var(--label-color-secondary);
+  
+  strong {
+    color: var(--label-color-primary);
+  }
+}

@@ -8,7 +8,7 @@ const ActorCard = ({ id, name, character, photo }) => {
   const namePlaceholder = name.split(' ').map((n) => n[0]).join('');
 
   return (
-    <Link className="actor-card" to={`#${id}`}>
+    <Link className="actor-card" to={`/person/${id}`}>
       <div className="actor-card__photo" data-placeholder={namePlaceholder}>
         {photo && (
           <img src={getProfileImg('w185', photo)} alt="" />

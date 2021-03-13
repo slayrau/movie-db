@@ -1,0 +1,96 @@
+@import 'src/styles/utils/extends';
+@import 'src/styles/utils/mixins';
+
+.person-bio {
+}
+
+.person-bio__title {
+  margin-bottom: 20px;
+}
+
+.person-bio__content {
+  position: relative;
+}
+
+.person-bio__text {
+  position: relative;
+
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 20px;
+
+  max-height: 222px;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &::before {
+    top: 0;
+    background: linear-gradient(180deg, rgba(30, 30, 30, 0) calc(100% - (2 * var(--button-size))), #1e1e1e 99%);
+  }
+
+  &::after {
+    height: calc(var(--button-size) * 2);
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0) 0%, #1e1e1e 98%);
+  }
+
+  &--open {
+    max-height: none;
+
+    &::before,
+    &::after {
+      content: unset;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.person-bio__toggler {
+  @extend .reset-button;
+
+  $half-padding: calc(var(--button-size) / 2);
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  height: var(--button-size);
+  padding-right: var(--button-size);
+  padding-left: $half-padding;
+
+  color: var(--system-red);
+  outline: none;
+  opacity: 0.8;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+  
+  &[data-focus-visible-added] {
+    opacity: 1;
+    box-shadow: 0 0 0 4px var(--system-red);
+  }
+
+  &--open {
+    bottom: calc(var(--button-size) * -1);
+  }
+
+  .icon {
+    position: absolute;
+    right: calc(var(--button-size) / 2);
+    transform: translateX(50%) rotate(270deg);
+  }
+}
