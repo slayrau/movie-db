@@ -18,7 +18,7 @@ const getTrendingTvSeries = () => (
   instance.get(`/trending/tv/day?api_key=${API_KEY}&language=${LANG}`)
 );
 
-const getMediaDetails = ({ mediaType, id }) => (
+const getDetails = ({ mediaType, id }) => (
   instance.get(`/${mediaType}/${id}?api_key=${API_KEY}&append_to_response=credits,similar,content_ratings,videos&language=${LANG}`)
 );
 
@@ -37,7 +37,7 @@ const getPerson = (id) => (
 export {
   getTrendingMovies,
   getTrendingTvSeries,
-  getMediaDetails,
+  getDetails,
   getDiscover,
   getSearch,
   getTrending,

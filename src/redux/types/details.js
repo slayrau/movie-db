@@ -1,0 +1,10 @@
+const PREFIX = 'DETAILS';
+
+const ActionType = {
+  SET_DETAILS: `${PREFIX}/SET_DETAILS`,
+  SET_LOADING: `${PREFIX}/SET_LOADING`,
+  SET_ERROR: `${PREFIX}/SET_ERROR`,
+  RESET_DETAILS: `${PREFIX}/RESET_DETAILS`,
+};
+
+export default ActionType;
