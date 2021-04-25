@@ -1,13 +1,16 @@
 import { useEffect } from 'react';
-import { useRouteMatch } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getDiscoverGenres } from 'src/utils/helpers';
+import { useQuery } from 'src/hooks';
 
 import DiscoverSelector from 'src/redux/selectors/discover';
 import DiscoverOperation from 'src/redux/operations/discover';
 import DiscoverActionCreator from 'src/redux/actions/discover';
+import GenreActionCreator from 'src/redux/actions/genre';
 import GenreSelector from 'src/redux/selectors/genre';
+import SortActionCreator from 'src/redux/actions/sort';
 import SortSelector from 'src/redux/selectors/sort';
 
 import Genres from 'src/modules/genres';
@@ -21,23 +24,58 @@ import LoadMoreButton from 'src/components/load-more-button';
 import './style.scss';
 
 const MoviesPage = () => {
+  const query = useQuery();
+  const history = useHistory();
   const dispatch = useDispatch();
+
   const match = useRouteMatch('/:mediaType');
   const { mediaType } = match.params;
 
-  const discover = useSelector(DiscoverSelector.discover);
+  const data = useSelector(DiscoverSelector.data);
+  const loading = useSelector(DiscoverSelector.loading);
+  const totalPages = useSelector(DiscoverSelector.totalPages);
+  const currentPage = useSelector(DiscoverSelector.page);
   const genre = useSelector(GenreSelector.genreId);
   const sort = useSelector(SortSelector.sortId);
-
-  useEffect(() => {
-    dispatch(DiscoverOperation.getDiscover({ mediaType, genre, sort }));
-
-    return () => dispatch(DiscoverActionCreator.resetResults());
-  }, [dispatch, mediaType, genre, sort]);
 
   const handleLoadMore = () => {
     dispatch(DiscoverOperation.loadMoreDiscover({ mediaType, genre, sort }));
   };
+
+  useEffect(() => {
+    const queryGenre = query.get('genre');
+    const querySort = query.get('sort');
+
+    const params = {
+      genre: queryGenre || genre,
+      sort: querySort || sort,
+    };
+
+    dispatch(GenreActionCreator.setGenreId(params.genre));
+    dispatch(SortActionCreator.setSortId(params.sort));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (genre) query.set('genre', genre);
+    if (sort) query.set('sort', sort);
+
+    history.push({ search: query.toString() });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [genre, sort]);
+
+  useEffect(() => {
+    dispatch(DiscoverOperation.getDiscover({ mediaType, genre, sort }));
+  }, [dispatch, mediaType, genre, sort]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(GenreActionCreator.resetGenreId());
+      dispatch(SortActionCreator.resetSorting());
+      dispatch(DiscoverActionCreator.resetResults());
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mediaType]);
 
   return (
     <Page
@@ -53,13 +91,13 @@ const MoviesPage = () => {
         </div>
 
         <CardGrid>
-          {(discover.loading && !discover.data.length)
+          {(loading && !data.length)
             ? (
               new Array(20).fill(0).map((_, i) => (
                 <CardSkeleton key={i} />
               ))
             ) : (
-              discover.data.map((it) => (
+              data.map((it) => (
                 <Card
                   key={it.id}
                   id={it.id}
@@ -73,10 +111,10 @@ const MoviesPage = () => {
             )}
         </CardGrid>
 
-        {(discover.page < discover.total_pages) && (
+        {(currentPage < totalPages) && (
           <LoadMoreButton
             onLoadMoreClick={handleLoadMore}
-            disabled={discover.loading}
+            disabled={loading}
           />
         )}
       </div>

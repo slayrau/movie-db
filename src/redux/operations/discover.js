@@ -2,11 +2,9 @@ import { getDiscover } from 'src/api';
 import ActionCreator from 'src/redux/actions/discover';
 
 const Operation = {
-  getDiscover: ({ mediaType, genre, sort }) => async (dispatch, getState) => {
+  getDiscover: (options) => async (dispatch) => {
     try {
-      const initialPage = getState().discover.page;
-
-      const response = await getDiscover({ mediaType, genre, sort, page: initialPage });
+      const response = await getDiscover(options);
       const { results, page, total_pages } = response.data;
 
       dispatch(ActionCreator.setResults({ results, page, total_pages }));
@@ -17,13 +15,12 @@ const Operation = {
     }
   },
 
-  loadMoreDiscover: ({ mediaType, genre, sort }) => async (dispatch, getState) => {
+  loadMoreDiscover: (options) => async (dispatch, getState) => {
     try {
-      dispatch(ActionCreator.setLoading(true));
+      const { discover } = getState();
+      const nextPage = discover.page < discover.total_pages ? +discover.page + 1 : discover.page;
 
-      const nextPage = getState().discover.page + 1;
-
-      const response = await getDiscover({ mediaType, genre, sort, page: nextPage });
+      const response = await getDiscover({ ...options, page: nextPage });
       const { results, page } = response.data;
 
       dispatch(ActionCreator.setMoreResults({ results, page }));
