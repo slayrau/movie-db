@@ -10,6 +10,8 @@
 .select__header {}
 
 .select__title {
+  @extend .visually-hidden;
+  
   margin: 0;
   font-size: var(--font-size-title-2);
 }
@@ -68,6 +70,10 @@
   background-color: var(--background-primary);
   border: 1px solid var(--label-color-secondary);
   opacity: 0.92;
+
+  &--right {
+    right: 0;
+  }
 }
 
 .select__list {

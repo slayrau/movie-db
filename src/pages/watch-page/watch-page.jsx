@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { format, getMinutes, parseISO } from 'date-fns';
 
 import { actorsBreakpoints, videosBreakpoints } from 'src/utils/settings';
@@ -24,8 +24,9 @@ import './style.scss';
 
 const WatchPage = () => {
   const { mediaType, id } = useParams();
-  const dispatch = useDispatch();
+  const history = useHistory();
   const { data, loading, error } = useSelector(Selector.details);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(Operation.getDetails({ mediaType, id }));
@@ -33,11 +34,13 @@ const WatchPage = () => {
     return () => dispatch(ActionCreator.resetDetails());
   }, [dispatch, mediaType, id]);
 
+  if (error) {
+    history.replace(`/${mediaType}`);
+    return null;
+  }
+
   const formatedDuration = getUTCRuntime(data.runtime);
   const releasedDate = (data.release_date || data.first_air_date) ? format(parseISO(data.release_date || data.first_air_date), 'yyyy') : '';
-
-  console.log(data);
-  console.log(releasedDate);
 
   return (
     <Page className="watch-page">
@@ -51,7 +54,7 @@ const WatchPage = () => {
               mediaType={mediaType}
               mediaTypeName={getMediaTypeName(mediaType)}
               backdropSrc={getBackdropUrl('original', data.backdrop_path)}
-              // releaseDate={format(parseISO(data.release_date || data.first_air_date), 'yyyy')}
+              releaseDate={releasedDate}
               duration={
                 data.runtime && (
                   data.runtime > 60

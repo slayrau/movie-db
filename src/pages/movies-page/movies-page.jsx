@@ -65,6 +65,7 @@ const MoviesPage = () => {
             selectedId={sort}
             onSelectClick={handleSortClick}
             column
+            right
           />
         </div>
 

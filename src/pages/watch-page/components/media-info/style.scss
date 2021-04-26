@@ -9,7 +9,10 @@
 .media-info__backdrop {
   position: relative;
   width: 100%;
+  margin-bottom: -20%;
   padding-top: min(50%, 90vh);
+  z-index: -1;
+
 
   &::before {
     content: '';

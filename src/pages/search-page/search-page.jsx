@@ -58,7 +58,7 @@ const SearchPage = () => {
         onSubmit={handleSubmit}
       >
         {({ values, submitForm, handleChange, setFieldValue }) => {
-          if (!isSubmitedRef.current) {
+          if (!isSubmitedRef.current && values.query) {
             submitForm();
             isSubmitedRef.current = true;
           }
@@ -109,6 +109,10 @@ const SearchPage = () => {
                   />
                 </div>
               </Form>
+
+              {(values.query && !discover.data.length) && (
+                <p className="search-page__not-found">ничего не найдено</p>
+              )}
 
               <CardGrid>
                 {discover.data.map((item) => (

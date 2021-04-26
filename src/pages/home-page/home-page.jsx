@@ -25,6 +25,7 @@ const HomePage = () => {
     return () => {
       dispatch(ActionCreator.resetTrendings());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const preloadingCards = new Array(20).fill(0);

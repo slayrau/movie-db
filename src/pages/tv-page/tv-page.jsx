@@ -65,6 +65,7 @@ const TvPage = () => {
             selectedId={sort}
             onSelectClick={handleSortClick}
             column
+            right
           />
         </div>
 

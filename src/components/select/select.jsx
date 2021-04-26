@@ -7,7 +7,7 @@ import { IconNames } from 'src/utils/const';
 import Icon from 'src/components/icon';
 import './style.scss';
 
-const Select = ({ title, column, data, selectedId, onSelectClick }) => {
+const Select = ({ data, selectedId, onSelectClick, title, column, right }) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
   const selectRef = useRef();
   const escKeyPressed = useKeyPress('Escape');
@@ -51,7 +51,11 @@ const Select = ({ title, column, data, selectedId, onSelectClick }) => {
       </div>
 
       {dropdownIsOpen && (
-        <div className="select__dropdown">
+        <div
+          className={cn('select__dropdown', {
+            'select__dropdown--right': right,
+          })}
+        >
           <ul
             className={cn('select__list', {
               'select__list--column': column,
@@ -79,15 +83,17 @@ const Select = ({ title, column, data, selectedId, onSelectClick }) => {
 };
 
 Select.propTypes = {
-  title: PropTypes.string.isRequired,
-  column: PropTypes.bool,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   selectedId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   onSelectClick: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  column: PropTypes.bool,
+  right: PropTypes.bool,
 };
 
 Select.defaultProps = {
   column: false,
+  right: false,
 };
 
 export default Select;

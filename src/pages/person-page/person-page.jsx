@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import { getProfileImg } from 'src/utils/helpers';
-import { MediaType } from 'src/utils/const';
 
 import Operation from 'src/redux/operations/person';
 import ActionCreator from 'src/redux/actions/person';
@@ -21,14 +20,21 @@ import './style.scss';
 
 const PersonPage = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
+  const history = useHistory();
   const { data, loading, error } = useSelector(Selector.person);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(Operation.getPerson(id));
 
     return () => dispatch(ActionCreator.resetPerson());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (error) {
+    history.replace('/');
+    return null;
+  }
 
   return (
     <main className="person-page page">
