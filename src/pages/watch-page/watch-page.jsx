@@ -34,6 +34,10 @@ const WatchPage = () => {
   }, [dispatch, mediaType, id]);
 
   const formatedDuration = getUTCRuntime(data.runtime);
+  const releasedDate = (data.release_date || data.first_air_date) ? format(parseISO(data.release_date || data.first_air_date), 'yyyy') : '';
+
+  console.log(data);
+  console.log(releasedDate);
 
   return (
     <Page className="watch-page">
@@ -44,9 +48,10 @@ const WatchPage = () => {
           <>
             <MediaInfo
               title={data.title || data.name}
+              mediaType={mediaType}
               mediaTypeName={getMediaTypeName(mediaType)}
               backdropSrc={getBackdropUrl('original', data.backdrop_path)}
-              releaseDate={format(parseISO(data.release_date || data.first_air_date), 'yyyy')}
+              // releaseDate={format(parseISO(data.release_date || data.first_air_date), 'yyyy')}
               duration={
                 data.runtime && (
                   data.runtime > 60
@@ -58,7 +63,7 @@ const WatchPage = () => {
               overview={data.overview}
             />
 
-            {data.videos && (
+            {!!data.videos.results.length && (
               <Collection
                 title={`Видео | ${data.name || data.title}`}
                 breakpoints={videosBreakpoints}
@@ -75,34 +80,38 @@ const WatchPage = () => {
               </Collection>
             )}
 
-            <Collection
-              title="Актеры"
-              breakpoints={actorsBreakpoints}
-            >
-              {data.credits.cast.map((cast) => (
-                <ActorCard
-                  key={cast.id}
-                  id={cast.id}
-                  name={cast.name}
-                  character={cast.character}
-                  photo={cast.profile_path}
-                />
-              ))}
-            </Collection>
+            {!!data.credits.cast.length && (
+              <Collection
+                title="Актеры"
+                breakpoints={actorsBreakpoints}
+              >
+                {data.credits.cast.map((cast) => (
+                  <ActorCard
+                    key={cast.id}
+                    id={cast.id}
+                    name={cast.name}
+                    character={cast.character}
+                    photo={cast.profile_path}
+                  />
+                ))}
+              </Collection>
+            )}
 
-            <Similar title="Вам понравится">
-              {data.similar.results.map((similar) => (
-                <Card
-                  key={similar.id}
-                  id={similar.id}
-                  mediaType={mediaType}
-                  title={similar.title || similar.name}
-                  posterPath={similar.poster_path}
-                  releaseDate={similar.release_date || similar.first_air_date}
-                  voteAverage={similar.vote_average}
-                />
-              ))}
-            </Similar>
+            {!!data.similar.results.length && (
+              <Similar title="Вам понравится">
+                {data.similar.results.map((similar) => (
+                  <Card
+                    key={similar.id}
+                    id={similar.id}
+                    mediaType={mediaType}
+                    title={similar.title || similar.name}
+                    posterPath={similar.poster_path}
+                    releaseDate={similar.release_date || similar.first_air_date}
+                    voteAverage={similar.vote_average}
+                  />
+                ))}
+              </Similar>
+            )}
           </>
         )}
     </Page>

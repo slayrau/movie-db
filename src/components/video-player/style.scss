@@ -19,4 +19,6 @@
 
 .video-player__title {
   @extend .text-ellipsis;
+
+  margin-bottom: 0;
 }

@@ -11,7 +11,7 @@ const Select = ({ title, column, data, selectedId, onSelectClick }) => {
   const [dropdownIsOpen, setDropdownOpen] = useState(false);
   const selectRef = useRef();
   const escKeyPressed = useKeyPress('Escape');
-  const selectedName = data.find((it) => String(it.id) === String(selectedId)).name;
+  const selected = data.find((it) => String(it.id) === String(selectedId));
 
   useOnClickOutside(selectRef, () => {
     if (dropdownIsOpen) {
@@ -45,7 +45,7 @@ const Select = ({ title, column, data, selectedId, onSelectClick }) => {
           type="button"
           onClick={handleToggleDropdown}
         >
-          {selectedName}
+          {selected?.name}
           <Icon icon={IconNames.dropdown24} />
         </button>
       </div>

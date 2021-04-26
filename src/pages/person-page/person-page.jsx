@@ -30,8 +30,6 @@ const PersonPage = () => {
     return () => dispatch(ActionCreator.resetPerson());
   }, []);
 
-  console.log(data);
-
   return (
     <main className="person-page page">
       {loading
@@ -57,7 +55,7 @@ const PersonPage = () => {
               <div className="person-page__column person-page__column--right">
                 <section className="person-page__main-content">
                   <Title level={1}>{data.name}</Title>
-                  <PersonBio biography={data.biography} />
+                  {data.biography && <PersonBio biography={data.biography} />}
                   <CreditsList
                     tv={data.tv_credits.cast}
                     movie={data.movie_credits.cast}
